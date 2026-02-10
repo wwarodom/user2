@@ -1,15 +1,22 @@
+'use client'
+import { useActionState } from "react"
+import submitPlayer from "./action"
 export default function PlayerPage() {
-
     const initState = {
-        name: "",
-        age: 0,
-        email: ""
+        error: {},
+        data: {
+            name: "",
+            age: 0,
+            email: ""
+        }
     }
+
+    const [state, action] = useActionState(submitPlayer, initState)
 
     return (
         <div className="flex flex-col justify-center items-center h-screen">
             <h1>Player Page</h1>
-            <form>
+            <form action={action}>
                 <div>
                     Name: <input className="border my-2 px-2"
                         type="text" name="name" />
