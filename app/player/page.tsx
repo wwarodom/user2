@@ -30,7 +30,7 @@ export default function PlayerPage() {
                     />
                     {state.errors?.name &&
                         <p className="text-sm text-red-600"> {
-                            state.errors?.name.errors[0]
+                            state.errors?.name.errors?.[0]
                         } </p>}
                 </div>
                 <div>
