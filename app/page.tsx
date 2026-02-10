@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 const URL = `https://randomuser.me/api/0.8/?results=3`
 
 type UserType = {
@@ -8,7 +10,9 @@ type UserType = {
       last: string
     },
     email: string
-    picture: string
+    picture: {
+      large: string
+    }
   }
 }
 
@@ -22,15 +26,20 @@ export default async function UserPage() {
         {JSON.stringify(users, null, 4)}
       </pre>
     </div> */}
-    <div>
+    <div className='flex flex-col items-center justify-center h-screen'>
       {
         users && users.results.map((item: UserType, index: number) =>
-          <div key={index} className="border-2 m-2 p-2">
+          <div key={index} className="border-2 m-2 p-2 flex justify-between items-center w-96">
             <div>
-              {item.user.name.title}. {item.user.name.first}  {item.user.name.last}
+              <Image src={item.user.picture.large} width={100} height={100} alt="User" />
             </div>
             <div>
-              {item.user.email}
+              <div>
+                {item.user.name.title}. {item.user.name.first}  {item.user.name.last}
+              </div>
+              <div>
+                {item.user.email}
+              </div>
             </div>
           </div>
         )
