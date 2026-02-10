@@ -24,15 +24,21 @@ export default function PlayerPage() {
             <form action={action}>
                 <div>
                     Name: <input className="border my-2 px-2"
-                        type="text" name="name" />
+                        type="text" name="name"
+                        defaultValue={state.data.name}
+                    />
                 </div>
                 <div>
                     Age: <input className="border my-2 px-2"
-                        type="number" name="age" />
+                        type="number" name="age"
+                        defaultValue={state.data.age}
+                    />
                 </div>
                 <div>
                     Email: <input className="border my-2 px-2"
-                        type="email" name="email" />
+                        type="email" name="email"
+                        defaultValue={state.data.email}
+                    />
                 </div>
                 <div>
                     <button className="border my-2 px-2">Submit</button>

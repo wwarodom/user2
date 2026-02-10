@@ -1,8 +1,9 @@
-export default function submitPlayer(prevState: unknown, formData: FormData) {
+export default function submitPlayer(
+    prevState: unknown, formData: FormData) {
 
-    const name = formData.get("name")
-    const age = formData.get("age")
-    const email = formData.get("email")
+    const name = formData.get("name") as string
+    const age = Number(formData.get("age"))
+    const email = formData.get("email") as string
 
     const data = { name, age, email }
 
